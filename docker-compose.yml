@@ -1,0 +1,11 @@
+version: "3"
+services:
+    app:
+        build: .
+        ports:
+            - "53:53/udp"
+            - "53:53"
+        volumes:
+            - "./hosts:/etc/dnsmasq.hosts:ro"
+            - "./dnsmasq.d:/etc/dnsmasq.d:ro"
+        restart: always
